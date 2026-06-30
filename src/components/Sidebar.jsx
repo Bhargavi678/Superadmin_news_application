@@ -7,6 +7,7 @@ import {
   Newspaper,
   Tags,
   BarChart3,
+  MapPin,
 } from "lucide-react";
 
 const menuItems = [
@@ -30,6 +31,12 @@ const menuItems = [
     icon: BarChart3,
     path: "/analytics",
   },
+  {
+  name: "Locations",
+  icon: MapPin,
+  path: "/locations",
+},
+ 
 ];
 
 export default function Sidebar() {

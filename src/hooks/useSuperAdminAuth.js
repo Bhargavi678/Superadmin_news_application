@@ -5,21 +5,23 @@ export const useSuperAdminAuth = () => {
   const [loading, setLoading] = useState(false);
 
   const login = async (email, password) => {
-    console.log("HOOK CALLED");
+  console.log("HOOK CALLED");
 
-    setLoading(true);
+  setLoading(true);
 
-    try {
-      const response = await superAdminLogin(
-        email,
-        password
-      );
+  try {
+    const response = await superAdminLogin(email, password);
 
-      return response;
-    } finally {
-      setLoading(false);
-    }
-  };
+    console.log("SERVICE RESPONSE:", response);
+
+    return response;
+  } catch (err) {
+    console.log("HOOK ERROR:", err);
+    throw err;
+  } finally {
+    setLoading(false);
+  }
+};
 
   return {
     login,

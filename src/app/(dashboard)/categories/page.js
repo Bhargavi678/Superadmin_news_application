@@ -63,7 +63,7 @@ export default function CategoriesPage() {
   ];
 
   return (
-    <div className="p-8 bg-[#f8f8f8] min-h-screen">
+    <div className="p-10 bg-[#f8f8f8] min-h-screen">
       {/* Header */}
       <div className="flex justify-between items-start mb-10">
         <div>
@@ -96,13 +96,14 @@ export default function CategoriesPage() {
           Loading Categories...
         </div>
       ) : (
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
           {categories?.map(
             (item, index) => (
-              <div
-                key={item.category_id}
-                className="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden hover:shadow-lg transition"
-              >
+              
+                <div
+  key={item.category_id}
+  className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden hover:shadow-md transition"
+>
                 {/* Top Color */}
                 <div
                   className={`h-2 ${

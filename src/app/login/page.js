@@ -5,61 +5,70 @@ import { useRouter } from "next/navigation";
 import { Eye, EyeOff, Shield } from "lucide-react";
 import { useSuperAdminAuth } from "@/hooks/useSuperAdminAuth";
 
-export default function SuperAdminLoginPage() {
+export default function Home() {
   const router = useRouter();
 
   const { login, loading } = useSuperAdminAuth();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] =
-    useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
   e.preventDefault();
 
+  setError("");
+
   try {
     const response = await login(email, password);
 
-    console.log("Login Success", response);
+console.log(response);
 
-    localStorage.setItem(
-      "access_token",
-      response.data.access_token
+localStorage.setItem(
+  "access_token",
+  response.data.access_token
+);
+
+router.push("/admins");
+  } catch (err) {
+    console.error("Login Error:", err);
+
+    setError(
+      err.response?.data?.message ||
+      "Invalid email or password"
     );
-
-    router.push("/admins");
-  } catch (error) {
-    console.error(error);
   }
 };
+
   return (
-    <div className="min-h-screen bg-slate-950 flex items-center justify-center px-4">
-      <div className="w-full max-w-md bg-slate-900 rounded-3xl shadow-2xl border border-slate-800 p-8">
+    <div className="min-h-screen bg-[#020817] flex items-center justify-center px-4">
+      <div className="w-full max-w-md bg-[#0f172a] border border-slate-800 rounded-3xl p-8 shadow-2xl">
+
         {/* Logo */}
         <div className="flex flex-col items-center mb-8">
           <div className="w-20 h-20 rounded-full bg-gradient-to-r from-red-500 to-orange-500 flex items-center justify-center">
-            <Shield size={36} className="text-white" />
+            <Shield
+              className="text-white"
+              size={36}
+            />
           </div>
 
           <h1 className="text-3xl font-bold text-white mt-4">
-            Super Admin
+            Newsly
           </h1>
 
           <p className="text-slate-400 mt-2">
-            Sign in to continue
+            Super Admin Login
           </p>
         </div>
 
-        {/* Error */}
         {error && (
-          <div className="mb-4 p-3 rounded-xl bg-red-500/10 border border-red-500 text-red-400">
+          <div className="mb-4 bg-red-500/20 text-red-400 p-3 rounded-xl">
             {error}
           </div>
         )}
 
-        {/* Form */}
         <form
           onSubmit={handleSubmit}
           className="space-y-5"
@@ -122,11 +131,11 @@ export default function SuperAdminLoginPage() {
             </div>
           </div>
 
-          {/* Submit */}
+          {/* Login Button */}
           <button
             type="submit"
             disabled={loading}
-            className="w-full h-12 rounded-xl bg-gradient-to-r from-red-500 to-orange-500 text-white font-semibold hover:opacity-90 transition"
+            className="w-full h-12 rounded-xl bg-gradient-to-r from-red-500 to-orange-500 text-white font-semibold hover:opacity-90"
           >
             {loading
               ? "Signing In..."

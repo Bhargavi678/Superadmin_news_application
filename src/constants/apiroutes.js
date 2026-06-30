@@ -16,5 +16,6 @@ export const API_ROUTES = {
   DELETE_CATEGORY: (id) =>
     `/superadmin/categories/${id}`,
   GET_ANALYTICS: "/superadmin/analytics",
+  GET_LOCATIONS: "/superadmin/locations/",
   },
 };
