@@ -59,8 +59,8 @@ export default function NewsManagementPage() {
       </div>
 
       {/* Table */}
-      <div className="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden">
-        <div className="px-6 py-5 border-b bg-gradient-to-r from-orange-50 to-red-50">
+      <div className="bg-white rounded-3xl shadow-sm overflow-hidden">
+        <div className="px-6 py-5 bg-gradient-to-r from-orange-50 to-red-50">
           <h2 className="text-xl font-semibold text-gray-800">
             All News
           </h2>
