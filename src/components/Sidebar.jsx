@@ -104,7 +104,7 @@ export default function Sidebar() {
         })}
       </div>
 
-      {/* Profile */}
+      {/* Profile 
       <div className="p-4 border-t border-slate-800">
         <div className="bg-slate-900 rounded-2xl p-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -125,7 +125,7 @@ export default function Sidebar() {
 
           <div className="h-2.5 w-2.5 rounded-full bg-green-500"></div>
         </div>
-      </div>
+      </div>*/}
     </aside>
   );
 }

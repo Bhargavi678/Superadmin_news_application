@@ -270,6 +270,7 @@ export default function AdminsPage() {
 
               <input
                 type="file"
+                className="w-full border p-3 rounded-lg"
                 onChange={(e) =>
                   setFormData({
                     ...formData,
